@@ -1,4 +1,24 @@
-node_modules
-dist
+# Secrets: never committed, never printed
+tokens.txt*
+Tokens.txt*
+*.token*
+hf_token*
+.env*
+
+# Raw sources: rules PDFs, wiki dumps, card scrapes (docs/sources.md says how to refetch)
+scratch/
+
+# Art and audio masters; only delivery encodes are committed
+art/masters/
+art/archive/
+art/audition/out/
+audio/masters/
+
+# Bug-report traces, tool output
+traces/
 *.log
+
+# Tooling
+node_modules/
+.claude/
 .DS_Store
