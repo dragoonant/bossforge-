@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BossForge art proofs: MGSD + 16-bit</title>
+    <style>
+      body { margin: 0; padding: 20px; background: #120d16; color: #f1e9f4; font: 15px/1.45 system-ui, sans-serif; }
+      h1 { margin: 0 0 4px; color: #f2c14e; }
+      p.lede { color: #a996b3; max-width: 900px; }
+      section { margin: 26px 0; padding: 16px; border: 1px solid #4a3756; border-radius: 14px; background: #1c1422; }
+      h2 { margin: 0 0 4px; }
+      h2 b { color: #f2c14e; }
+      .blurb { color: #c9b8d2; margin: 0 0 12px; }
+      .row { display: flex; gap: 16px; flex-wrap: wrap; }
+      figure { margin: 0; text-align: center; }
+      figure canvas { display: block; border-radius: 10px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5); image-rendering: pixelated; width: 240px; height: 336px; }
+      figure canvas.small { width: 80px; height: 112px; margin: 6px auto 0; }
+      figcaption { font-size: 12px; color: #a996b3; margin-top: 4px; }
+    </style>
+  </head>
+  <body>
+    <h1>Art proofs: MGSD + 16-bit pixel art</h1>
+    <p class="lede">Five styles, three subjects each (a Boss, a Monster Room, a Hero), drawn as true pixel art: 80×112 pixels per card, shown at 3× and at the 1× size a card has on the board. All figures and scenes are original; none copies a printed card. Pick a letter and every card gets drawn in that style.</p>
+    <div id="out"></div>
+    <script src="pixelart.js"></script>
+    <script src="subjects.js"></script>
+    <script>
+      const out = document.getElementById('out');
+      for (const st of PA.STYLES) {
+        const sec = document.createElement('section');
+        sec.id = `style-${st.id}`;
+        sec.innerHTML = `<h2><b>${st.id}</b> · ${st.name}</h2><p class="blurb">${st.blurb}</p><div class="row"></div>`;
+        const row = sec.querySelector('.row');
+        for (const [kind, what, fn] of PA.SUBJECTS) {
+          const fig = document.createElement('figure');
+          const cv = PA.draw(fn, st);
+          const big = PA.toCanvas(cv, st, 3);
+          const small = PA.toCanvas(cv, st, 1);
+          small.className = 'small';
+          fig.append(big, small);
+          const cap = document.createElement('figcaption');
+          cap.textContent = `${kind}: ${what}`;
+          fig.append(cap);
+          row.append(fig);
+        }
+        out.append(sec);
+      }
+    </script>
+  </body>
+</html>

@@ -36,7 +36,9 @@ viewers, the log, self-explaining prompts.
 - Engine complete for the Base Set on the plain-JS skeleton: queue, LIFO stack, priority windows,
   doors, all 55 rules cards plus the Fool; 84 behaviour tests; sims hold every invariant.
 - UI playable end to end in the real browser (1-3 AI Bosses; 1440x900, 1280x800, 390x844 checked).
-- Art audition tool ready (D7); not yet rendered: needs the owner's Flux Studio.
+- Art: owner rejected the procedural placeholders ("2 bit art"). Five hand-built MGSD + 16-bit
+  styles (A-E) proofed on three subjects with `art/proofs/` (live at /art/proofs/); awaiting the
+  owner's pick. The Flux audition tool remains for later AI-rendered work.
 - Live on Pages (D14): https://dragoonant.github.io/bossforge-/
 - Not done: printed-vs-own-words auditor, view()/leak test, bug-report black box, sound, final art
   (HANDOFF.md open items).
