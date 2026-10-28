@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>BossForge tests</title>
+    <style>body{font:14px/1.4 system-ui;background:#111;color:#ddd;padding:16px}.ok{color:#6c6}.bad{color:#f66}</style>
+  </head>
+  <body>
+    <h1>BossForge tests</h1>
+    <pre id="out">running…</pre>
+    <script src="js/ns.js"></script>
+    <script src="js/rng.js"></script>
+    <script src="data/cards.js"></script>
+    <script src="data/defects.js"></script>
+    <script src="js/engine.js"></script>
+    <script src="js/abilities.js"></script>
+    <script src="js/cards.js"></script>
+    <script src="js/ai.js"></script>
+    <!-- ui -->
+    <script src="tests/harness.js"></script>
+    <script src="tests/01-setup.js"></script>
+    <script src="tests/02-turn.js"></script>
+    <script src="tests/03-rooms.js"></script>
+    <script src="tests/04-spells.js"></script>
+    <script src="tests/05-bosses.js"></script>
+    <script src="tests/06-games.js"></script>
+    <script>
+      const r = BF.T.runAll();
+      document.getElementById('out').innerHTML = r.lines.map((l) => `<span class="${l.ok ? 'ok' : 'bad'}">${l.text}</span>`).join('\n');
+    </script>
+  </body>
+</html>
