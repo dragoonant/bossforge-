@@ -20,6 +20,7 @@ for every file restating it.
 | D11 | 2026-10-28 | First playable milestone: a full base-set game vs one AI Boss in the real browser, with self-explaining prompts, open-information viewers (discard pile, scorekeeping areas, town, entrances), a how-to-play panel and a score tracker from the first build. | series rule |
 | D12 | 2026-10-28 | Single agent by default; helpers only for disjoint files. | series rule |
 | D13 | 2026-10-28 | Dev server port **8241**. | default |
+| D14 | 2026-10-28 | **Live on GitHub Pages** at https://dragoonant.github.io/bossforge-/ from the `gh-pages` branch, which `pages.yml` mirrors from `main` after the gates pass (supersedes the Actions-artifact route in D6, which needs a settings change this session could not make). | owner ("push to pages") |
 
 ## Cut order if time runs short
 
@@ -36,6 +37,6 @@ viewers, the log, self-explaining prompts.
   doors, all 55 rules cards plus the Fool; 84 behaviour tests; sims hold every invariant.
 - UI playable end to end in the real browser (1-3 AI Bosses; 1440x900, 1280x800, 390x844 checked).
 - Art audition tool ready (D7); not yet rendered: needs the owner's Flux Studio.
-- Pages workflow ready (D6); live once merged to `main` and Pages source is set to GitHub Actions.
+- Live on Pages (D14): https://dragoonant.github.io/bossforge-/
 - Not done: printed-vs-own-words auditor, view()/leak test, bug-report black box, sound, final art
   (HANDOFF.md open items).

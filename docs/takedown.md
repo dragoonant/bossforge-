@@ -3,15 +3,16 @@
 These are commands, not intentions. Deployment status lives in PLAN.md (D6); the commit that
 changes deployment also rewrites this file.
 
-The repository is public (`dragoonant/bossforge-`) and served by GitHub Pages from the
-`gh-pages` deployment of the Pages workflow (`.github/workflows/pages.yml`).
+The repository is public (`dragoonant/bossforge-`). GitHub Pages serves the `gh-pages` branch at
+https://dragoonant.github.io/bossforge-/ ; `.github/workflows/pages.yml` mirrors `main` into it.
 
 ## 1. Withdraw the hosted copy
 
 - Repository → Settings → Pages → "Unpublish site", then Settings → General → Change visibility →
   Private. (With `gh` available: `gh api -X DELETE repos/dragoonant/bossforge-/pages` and
   `gh repo edit dragoonant/bossforge- --visibility private --accept-visibility-change-consequences`.)
-- Delete `.github/workflows/pages.yml` so no later push redeploys.
+- Delete `.github/workflows/pages.yml` and the `gh-pages` branch
+  (`git push origin --delete gh-pages`) so no later push redeploys.
 
 ## 2. Names only
 

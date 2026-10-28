@@ -20,8 +20,8 @@ Rewritten each session, never appended. Decisions live in PLAN.md; this file say
    `node tools/art-audition.mjs --dry-run` (read the ten prompts), then
    `node tools/art-audition.mjs`. Open `art/audition/out/index.html`. This cloud session could not
    reach Flux Studio, so the ten proofs are not rendered yet.
-2. **Go public (PLAN D6)**: merge this branch into `main`, then set Settings → Pages → Source:
-   "GitHub Actions" once. `.github/workflows/pages.yml` then deploys on every push to `main`.
+2. **Playtest**: the game is live at https://dragoonant.github.io/bossforge-/ (PLAN D14). Every
+   push to `main` that passes the gates republishes it.
 3. **10th Anniversary card list**: the rules are the 2023 edition, but the cards are the original
    Base Set printing (DEVIATIONS X1). If you own the 10th Anniversary box, its 4 new Bosses and
    updated Rooms and Spells can be entered from the cards themselves.

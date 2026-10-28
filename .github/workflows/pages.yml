@@ -1,34 +1,25 @@
-# Public GitHub Pages deployment (PLAN D6). Needs Settings -> Pages -> Source: "GitHub Actions" once.
-# Withdrawal: docs/takedown.md.
+# Public GitHub Pages deployment (PLAN D6). Pages serves the `gh-pages` branch (enabled on
+# 2026-10-28 by the first push of that branch); this workflow runs the gates on every push to
+# `main` and, if they pass, mirrors `main` to `gh-pages`. Withdrawal: docs/takedown.md.
 name: Pages
 on:
   push:
     branches: [main]
   workflow_dispatch:
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 concurrency:
   group: pages
   cancel-in-progress: true
 jobs:
-  deploy:
+  publish:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
       - run: node tools/test.mjs --quiet && node tools/check-pages.mjs && node tools/stamp-assets.mjs --check
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-      - id: deploy
-        uses: actions/deploy-pages@v4
+      - run: git push --force origin HEAD:gh-pages
