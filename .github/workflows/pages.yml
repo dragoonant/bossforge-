@@ -25,6 +25,8 @@ jobs:
           node-version: 22
       - run: node tools/test.mjs --quiet && node tools/check-pages.mjs && node tools/stamp-assets.mjs --check
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
