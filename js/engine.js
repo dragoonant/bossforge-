@@ -1129,6 +1129,32 @@
     },
   };
 
+  /** In words, why `seat` cannot play hand card `iid` right now; null when it can (LESSONS-DIGEST §1.1). */
+  BF.whyNot = (s, seat, iid) => {
+    if (s.result) return 'The game is over.';
+    const q = s.pending;
+    if (!q || q.who !== seat) return 'Another Boss is deciding.';
+    if (q.kind !== 'window') return 'Answer the current question first.';
+    const w = s.queue[0];
+    const d = BF.defOf(s, iid);
+    if (d.kind === 'room') {
+      if (!w.place || w.active !== seat) return 'Rooms are built during your own build turn (RB p13).';
+      if (s.eot.noBuild) return 'Kobold Strike: no Rooms can be built this turn.';
+      if (!canPlace(s, seat)) return 'You have already placed your Room this turn.';
+      if (!BF.buildSlots(s, seat, iid).length) {
+        return d.adv ? 'An Advanced Room must be built over one of your Rooms with a matching treasure (RB p7).' : 'There is nowhere to build it.';
+      }
+      return null;
+    }
+    if (d.kind !== 'spell') return 'This card is not played from the hand.';
+    const phase = w.ctx === 'build' ? 'build' : 'adventure';
+    if (d.phase !== 'both' && d.phase !== phase) return `This Spell can only be cast in the ${d.phase === 'build' ? 'Build' : 'Adventure'} phase (RB p9).`;
+    const sp = BF.abOf(s, iid).spell;
+    if (sp.can && !sp.can(s, seat, w)) return BF.idOf(s, iid) === 'BMR050' ? 'You need fewer Rooms than an opponent.' : 'Its condition is not met.';
+    if (!targetsAvailable(s, seat, sp, iid)) return 'There is no legal target for it right now.';
+    return null;
+  };
+
   /** Re-check at resolution that a hero target is still where the card needs it (RB p20 Cancel). */
   BF.heroStillIn = (s, hero, where, seat) => {
     const a = BF.heroInRoom(s);

@@ -1,0 +1,19 @@
+# The gates on every push and pull request (CLAUDE.md: a gate lives in CI, not only in a commit message).
+name: CI
+on:
+  push:
+  pull_request:
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node tools/test.mjs --quiet
+      - run: node tools/check-pages.mjs
+      - run: node tools/sim.mjs --games 60 --policy random --quiet
+      - run: node tools/sim.mjs --games 30 --policy ai --quiet --seed 900
+      - run: node tools/stamp-assets.mjs --check
+      - run: node tools/art-audition.mjs --dry-run --quiet

@@ -15,6 +15,8 @@ Engine comments cite these tags; `tools/gate.mjs` checks every cited tag appears
 | RB p9 Spells | Draw Spells only when told. Any number per turn, only in Build and Adventure phases, by phase icon. Discard after playing. | `castable` |
 | RB p9 Priority | Spells and Room abilities resolve last-in-first-out; any player may interrupt; no limit. | `stack`, `window` |
 | RB p10 Set Up | Hero deck by player count (2p 13+8, 3p 17+12, 4p 25+16); ordinary shuffled on top of shuffled Epics; remove higher-count icons. Deal 2 Bosses each, keep 1. Starting hand 5 Rooms + 2 Spells. Mulligan if four Advanced Rooms or four of one treasure type. | `newGame` |
+| RB p10 Step | Set Up steps: Step 1 Hero decks by player count; Step 2 deal two Bosses, keep one; Step 3 starting hand and mulligan. | `newGame`, `mulligan` |
+| RB p11 Step | Step 4: build your first Room (see RB p11 First Room). | `setupBuild` |
 | RB p11 First Room | Before turn one, each player builds one Room face-down in XP order; reveal together; resolve build effects in XP order. | `setupBuild` |
 | RB p12 Sequence | Beginning (reveal one Hero per player, each draws a Room) → Build → Bait → Adventure → End. | `queue` |
 | RB p12 XP | Highest XP acts first in Build and Adventure. Active Player = the one building or processing Heroes. | `turnOrder` |
@@ -23,6 +25,7 @@ Engine comments cite these tags; `tools/gate.mjs` checks every cited tag appears
 | RB p14 Build Phase | Build Spells and abilities usable during Build. At end of Build, reveal simultaneously; Level Up and "when you build" resolve in XP order; no Spells/abilities during reveal or Bait. | `reveal` |
 | RB p15 Bait Phase | For each Hero (in reveal order): dungeon with the single highest matching treasure lures it to its entrance; zero or a tie keeps it in town. Heroes arrive in the order revealed. | `bait` |
 | RB p17 Adventure Phase | In XP order each player processes the Heroes at their entrance one at a time: entering a Room applies its ability then its damage; then Adventure Spells/abilities may be played; a Hero leaving a Room with damage ≥ Health dies (Soul, face-down); a survivor of the last Room reaches the Boss (Wound, face-up). | `adventure` |
+| RB p17 Survival | A Hero that is not killed before reaching the Boss goes face-up under the Boss as a Wound. | `reachBoss` |
 | RB p19 End of Turn | "Until end of turn" effects end; deactivated Rooms turn upright. Game ends if anyone has 10+ Souls or 5+ Wounds: highest Souls minus Wounds wins; tie → highest XP. Damage on a Hero returned to town or an entrance does not carry over. | `endOfTurn` |
 | RB p20 Classic Mode | Variant: draw 5 Rooms + 2 Spells then discard 2. | `newGame({classic})` |
 | RB p20 Activated Ability | Abilities needing a declaration or cost (e.g. "destroy this Room") are usable whenever you could play a Spell. Ongoing and "when you build" abilities are not activated. | `abilities` |

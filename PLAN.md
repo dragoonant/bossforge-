@@ -30,9 +30,12 @@ viewers, the log, self-explaining prompts.
 ## Status
 
 ### 2026-10-28 (session 1, cloud)
-- Knowledge base read (LESSONS-DIGEST, CROSS-PROJECT-LESSONS); kickoff questions answered (D2, D3,
-  D6, D7).
-- Rights research recorded (`docs/rights.md`): no Brotherwise fan or digital policy published.
-- Rule PDFs and the wiki card table fetched into `scratch/`; `docs/rules.md` index written.
-- In progress: engine on the plain-JS skeleton with the full Base Set, AI, UI, gates, art
-  audition tool, Pages deploy.
+- Knowledge base read; kickoff questions answered (D2, D3, D6, D7); KICKOFF.md records them.
+- Rights research recorded (`docs/rights.md`): Brotherwise publishes no fan or digital policy.
+- Engine complete for the Base Set on the plain-JS skeleton: queue, LIFO stack, priority windows,
+  doors, all 55 rules cards plus the Fool; 84 behaviour tests; sims hold every invariant.
+- UI playable end to end in the real browser (1-3 AI Bosses; 1440x900, 1280x800, 390x844 checked).
+- Art audition tool ready (D7); not yet rendered: needs the owner's Flux Studio.
+- Pages workflow ready (D6); live once merged to `main` and Pages source is set to GitHub Actions.
+- Not done: printed-vs-own-words auditor, view()/leak test, bug-report black box, sound, final art
+  (HANDOFF.md open items).

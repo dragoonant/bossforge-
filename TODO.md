@@ -13,3 +13,7 @@ today / constraints / done when.
 - **T4 Bug-report black box.** Exists: the seed is shown. Done when: a "Flag a bug" button saves a
   trace and `tools/replay-report.mjs --selftest` is in the gate.
 - **T5 Expansions.** Done when: Tools of Hero-Kind compiles in full behind its own set toggle.
+- **T6 Phone layout.** Exists: playable at 390px wide with horizontally scrolling lanes; the hand
+  overlaps tightly. Done when: hand cards are readable without hovering at 390px.
+- **T7 Build-reveal and destroy animations.** Exists: hero walks, damage, deaths, wounds, spell
+  spotlight and banners. Done when: revealed Rooms flip and destroyed Rooms crumble on the old board.

@@ -1,51 +1,47 @@
 # BossForge
 
-A digital dungeon-building card game in the style of *Boss Monster*. You play a Boss: build a
-dungeon of monster and trap rooms, lure greedy heroes in with treasure, and collect their souls
-before they wound you.
+**Boss Monster in the browser**: an unofficial, non-commercial reproduction of Brotherwise Games'
+dungeon-building card game (Base Set), played against 1-3 AI Bosses. Build a dungeon, lure greedy
+heroes with treasure, kill them for Souls, and avoid five Wounds.
 
-BossForge is an original fan project. It borrows the general rules structure of dungeon-building
-card games, but every card name, card text and ability here is original.
+> Unofficial fan project, not affiliated with, endorsed or sponsored by Brotherwise Games, LLC.
+> *Boss Monster*, its card names and its text belong to Brotherwise Games. No official art, logos or
+> card frames are used. See [NOTICE.md](NOTICE.md).
 
-## Running it
+## Play
 
-```bash
-npm install
-npm run dev        # play at http://localhost:5173
-npm test           # rules engine tests, including AI-vs-AI full-game simulations
-npm run build      # typecheck + production build into dist/
-```
-
-## How to play
-
-1. **Setup:** draw 5 Rooms and 2 Spells, discard 2, then build your first room.
-2. **Beginning of each turn:** one hero per Boss arrives in Town, and everyone draws a Room.
-3. **Build:** everyone secretly picks one room. It either opens a new room at the entrance (up to
-   5 rooms) or goes on top of an existing room. *Advanced* rooms must cover an ordinary room that
-   shares a treasure type. Builds are revealed together in Boss XP order. Build spells are cast here.
-4. **Bait:** each hero goes to the dungeon with the most of its treasure type. Your Boss's own
-   treasure counts too. Ties stay in Town.
-5. **Adventure:** heroes walk from the entrance to the Boss, taking each room's damage. Before
-   each hero enters, players may cast Adventure spells.
-6. A slain hero becomes a **Soul**. A hero that reaches the Boss deals a **Wound**. Epic heroes
-   count double. **10 souls wins; 5 wounds and you are out.**
-
-When a dungeon reaches 5 rooms for the first time, its Boss **levels up** and gains its ability.
-
-## Project layout
+Open `index.html` in a browser, or serve the folder:
 
 ```
-src/engine/   Pure, framework-free rules engine (no DOM, fully deterministic from a seed)
-  types.ts      Game state, card definitions, actions
-  cards.ts      The card set: 23 rooms, 9 spells, 8 bosses, 24 heroes
-  game.ts       createGame / applyAction (pure reducer) and rule selectors
-  ai.ts         Heuristic AI opponent
-  rng.ts        Seeded PRNG
-src/ui/       React front end
-  App.tsx         Start screen (boss pick, number of AI opponents)
-  GameScreen.tsx  The table: dungeons, Town, hand, prompts, chronicle log
-  useGame.ts      Wires the engine to React, runs the AI, paces the adventure
+node tools/serve.mjs          # http://localhost:8241
 ```
 
-The UI only ever calls `applyAction(state, action)`. Because of that, the same engine can later
-drive online multiplayer (send actions over the wire), replays and save games.
+No build step and no dependencies: plain browser JavaScript. Node 22+ runs the tools.
+
+## What is in it
+
+- **The full Base Set**: 8 Bosses, 75 Rooms, 31 Spells, 25 Heroes and 16 Epic Heroes, with every
+  card's printed name and text. Every card with rules text has its own behaviour test.
+- **The current official rules**: the 10th Anniversary rulebook (2023) plus Brotherwise's Advanced
+  Rules Guide & FAQ. That covers XP turn order, face-down builds revealed together, Level Up at five
+  Rooms, the bait phase, Heroes pausing in each Room, and a last-in-first-out stack for Spells and
+  Room abilities. Every unclear point is logged in [docs/rulings.md](docs/rulings.md).
+- **An AI** that builds for the Heroes in town and casts only when a Spell changes a Hero's fate.
+- **An interface** where every highlight comes from the engine's legal options. It shows open
+  information everywhere (discard pile, scorekeeping areas, Room stacks, town, entrances). Prompts
+  say what they are about, and the log is replayed as animation.
+- **Placeholder pixel art**, generated per card, until the art audition is decided (PLAN D7).
+
+## Develop
+
+```
+node tools/gate.mjs                    # every gate, one line each
+node tools/test.mjs --quiet            # 84 behaviour tests (tests.html runs them in a browser too)
+node tools/sim.mjs --games 200 --policy ai   # AI games with invariants after every step
+node tools/art-audition.mjs --dry-run  # the 10-direction art audition (renders on Flux Studio)
+```
+
+Start with [CLAUDE.md](CLAUDE.md) (the regime and hard rules) and [PLAN.md](PLAN.md) (every
+decision). [HANDOFF.md](HANDOFF.md) says where things stand.
+
+Built by **evilgouki**.
