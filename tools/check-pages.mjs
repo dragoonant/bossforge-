@@ -33,6 +33,14 @@ for (const f of [...jsFiles('js'), ...jsFiles('js/ui')]) {
   if (/s\.discard\.push\(/.test(src) && f !== 'js/engine.js') problems.push(`${f}: pushes to the discard pile directly; use BF.discardCard`);
   if (/\.dungeon\[[^\]]+\]\.push\(/.test(src) && f !== 'js/engine.js') problems.push(`${f}: builds into a dungeon directly; use BF.buildRoom`);
 }
+// PLAN D15: every card in the data has its own art plate, and a plate is drawn only once.
+{
+  const ids = [...readFileSync(join(root, 'data/cards.js'), 'utf8').matchAll(/"id":\s*"(BMR\d{3})"/g)].map((m) => m[1]);
+  const plates = index.ui.filter((f) => /cardart\d*\.js$/.test(f)).flatMap((f) => [...read(f).matchAll(/\bART\.(BMR\d{3})\s*=/g)].map((m) => m[1]));
+  for (const id of new Set(ids)) if (!plates.includes(id)) problems.push(`no art plate for ${id}`);
+  for (const id of plates) if (plates.indexOf(id) !== plates.lastIndexOf(id)) problems.push(`art plate for ${id} drawn twice`);
+  if (!ids.length) problems.push('read no card ids from data/cards.js');
+}
 // The engine never touches the DOM.
 for (const f of index.engine.filter((x) => x.startsWith('js/'))) {
   if (/\bdocument\.|\bwindow\./.test(read(f))) problems.push(`${f}: engine file touches the DOM`);

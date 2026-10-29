@@ -3,9 +3,10 @@
 Not DEVIATIONS.md (rules not kept) and not `data/defects.js` (cards hidden). Format: what exists
 today / constraints / done when.
 
-- **T1 Art.** Exists: procedural pixel placeholders seeded from the card id. Constraints: PLAN D7;
-  renders run on the owner's Flux Studio. Done when: the owner picks an audition direction and
-  every card has a QC'd plate.
+- **T1 Art polish.** Exists: style A (PLAN D15), one hand-posed action plate per card id in
+  `js/ui/cardart*.js`, drawn by `js/ui/pixelart.js` + `js/ui/artkit.js`; `tools/check-pages.mjs`
+  fails a card with no plate. Contact sheet: `art/sheet.html?ids=BMR001,BMR002`. Done when: the
+  owner has flagged any plate that reads badly and each flagged plate is redrawn.
 - **T2 Hot-seat and AI-vs-AI spectate.** Exists: you vs 1-3 AI. Done when: the title screen offers
   both and the trace records the seat setup.
 - **T3 Sound.** Exists: none. Constraints: local Audio Studio; say "not verified by ear" until the

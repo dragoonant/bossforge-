@@ -20,6 +20,7 @@ for every file restating it.
 | D11 | 2026-10-28 | First playable milestone: a full base-set game vs one AI Boss in the real browser, with self-explaining prompts, open-information viewers (discard pile, scorekeeping areas, town, entrances), a how-to-play panel and a score tracker from the first build. | series rule |
 | D12 | 2026-10-28 | Single agent by default; helpers only for disjoint files. | series rule |
 | D13 | 2026-10-28 | Dev server port **8241**. | default |
+| D15 | 2026-10-29 | **Art: style A "Console JRPG"** from `art/proofs/` (clean dark outlines, five-tone cel shading, warm light), MGSD proportions, drawn by our own pixel renderer. **Every card gets its own action pose**: owner, verbatim: "please don't make all the cards look exactly the same pose wise - make them action oriented, so it doesn't look so plain." **Do not re-litigate.** Supersedes the placeholder sprites in D7. | owner |
 | D14 | 2026-10-28 | **Live on GitHub Pages** at https://dragoonant.github.io/bossforge-/ from the `gh-pages` branch, which `pages.yml` mirrors from `main` after the gates pass (supersedes the Actions-artifact route in D6, which needs a settings change this session could not make). | owner ("push to pages") |
 
 ## Cut order if time runs short
@@ -40,5 +41,13 @@ viewers, the log, self-explaining prompts.
   styles (A-E) proofed on three subjects with `art/proofs/` (live at /art/proofs/); awaiting the
   owner's pick. The Flux audition tool remains for later AI-rendered work.
 - Live on Pages (D14): https://dragoonant.github.io/bossforge-/
-- Not done: printed-vs-own-words auditor, view()/leak test, bug-report black box, sound, final art
+- Not done: printed-vs-own-words auditor, view()/leak test, bug-report black box, sound
   (HANDOFF.md open items).
+
+### 2026-10-29 (session 1, continued)
+- Owner picked style A (D15) and asked for varied action poses. Built a posable MGSD rig
+  (`js/ui/artkit.js`) on the renderer (`js/ui/pixelart.js`) and drew one plate per card for all 96
+  ids plus the card back (`js/ui/cardart.js`, `cardart2.js`, `cardart3.js`); the procedural
+  placeholders (`js/ui/pixel.js`) are gone. `check-pages` now fails a card with no plate.
+- `build-printed` took the link target instead of the printed name for four Heroes (BMR063,
+  BMR066, BMR073, BMR086) and clipped their flavour text; fixed.

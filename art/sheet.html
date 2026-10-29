@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BossForge card art contact sheet</title>
+    <style>
+      body { margin: 0; padding: 16px; background: #120d16; color: #f1e9f4; font: 13px system-ui, sans-serif; }
+      h1 { color: #f2c14e; margin: 0 0 6px; }
+      main { display: grid; grid-template-columns: repeat(auto-fill, minmax(176px, 1fr)); gap: 14px; }
+      figure { margin: 0; text-align: center; }
+      img { width: 160px; height: 224px; image-rendering: pixelated; border-radius: 8px; box-shadow: 0 4px 12px #0008; }
+      figcaption { margin-top: 4px; color: #c9b8d2; }
+      .missing { width: 160px; height: 224px; display: grid; place-items: center; border: 1px dashed #4a3756; border-radius: 8px; color: #a996b3; }
+    </style>
+  </head>
+  <body>
+    <h1>Card art: style A, action poses</h1>
+    <main id="out"></main>
+    <script src="../js/ns.js"></script>
+    <script src="../data/cards.js"></script>
+    <script src="../data/printed.js"></script>
+    <script src="../js/ui/pixelart.js"></script>
+    <script src="../js/ui/artkit.js"></script>
+    <script src="../js/ui/cardart.js"></script>
+    <script src="../js/ui/cardart2.js"></script>
+    <script src="../js/ui/cardart3.js"></script>
+    <script>
+      const ids = (new URLSearchParams(location.search).get('ids') || Object.keys(BF.CARD_DATA).join(',')).split(',');
+      const out = document.getElementById('out');
+      for (const id of ids) {
+        const figEl = document.createElement('figure');
+        const name = (BF.PRINTED[id] && BF.PRINTED[id].name) || id;
+        try {
+          figEl.innerHTML = `<img src="${BF.ui.art(id)}" alt=""><figcaption>${id} ${name}</figcaption>`;
+        } catch (e) {
+          figEl.innerHTML = `<div class="missing">${e.message}</div><figcaption>${id} ${name}</figcaption>`;
+        }
+        out.append(figEl);
+      }
+    </script>
+  </body>
+</html>

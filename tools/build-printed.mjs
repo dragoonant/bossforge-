@@ -40,7 +40,8 @@ const rows = section.split(/\n\|-\s*\n/);
 for (let raw of rows) {
   raw = raw.trim();
   if (!/^\|\s*BMR\d{3}/.test(raw)) continue;
-  const heroName = raw.match(/'''\[\[([^\]]+)\]\]'''/)?.[1];
+  // A piped link [[page|shown]] prints the shown half on the card.
+  const heroName = raw.match(/'''\[\[([^\]]+)\]\]'''/)?.[1]?.split('|').pop();
   const cells = raw.replace(/\n\|(?!-)/g, '||').replace(/^\|/, '').split('||').map(clean);
   if (cells.length < 9) throw new Error(`Short row: ${raw.slice(0, 80)}`);
   const [id, name, subtitle, stat, treasure, type, text, minPlayers, qtyCell] = cells;

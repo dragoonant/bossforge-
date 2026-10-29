@@ -30,7 +30,8 @@ No build step and no dependencies: plain browser JavaScript. Node 22+ runs the t
 - **An interface** where every highlight comes from the engine's legal options. It shows open
   information everywhere (discard pile, scorekeeping areas, Room stacks, town, entrances). Prompts
   say what they are about, and the log is replayed as animation.
-- **Placeholder pixel art**, generated per card, until the art audition is decided (PLAN D7).
+- **Original pixel art** in the "Console JRPG" style (PLAN D15): every card has its own action
+  pose, drawn in the browser by our own renderer. Contact sheet: `art/sheet.html`.
 
 ## Develop
 

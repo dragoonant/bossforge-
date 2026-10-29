@@ -57,4 +57,4 @@ when everyone passes, `resolveTop` runs the card's `effect`.
    fields plus its own hand by convention. Done when: deciders receive `BF.view(s, seat)` and the
    sim asserts no hidden field is read.
 3. **Bug-report black box** (TODO T4).
-4. **Art** once a direction is picked (TODO T1); **sound** (TODO T3).
+4. **Art polish** on the owner's flags (TODO T1); **sound** (TODO T3).
