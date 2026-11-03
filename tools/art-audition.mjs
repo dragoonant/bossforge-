@@ -27,7 +27,7 @@ const OUT = join(root, 'art/audition/out');
 // Shared by every direction: the MGSD figure standard (local-ai-studios.md, approved 2026-10-05)
 // written in plain words, and the card's own subject and setting (never the card's name).
 const FIGURE =
-  'super-deformed figure about two and a half heads tall, oversized head about forty percent of its height, tiny torso, short stubby legs with big chunky boots, short arms with oversized hands, crisp hard-surface armor plating with panel lines and rivets';
+  'figure about two and a half heads tall, head about forty percent of its height, small torso, short thick legs with big chunky boots, short arms with oversized hands, crisp hard-surface armor plating with panel lines and rivets';
 const SUBJECTS = {
   boss: 'a frog monarch villain with a jeweled crown and a three-pronged spear, seated on a throne of pipes in a flooded sewer vault, green slime pools and dripping arches behind it',
   room: 'a cramped goblin armory chamber inside a stone dungeon, racks of crude spears and shields, a squat goblin quartermaster polishing an axe by torchlight',
@@ -135,6 +135,6 @@ writeFileSync(
   `<!doctype html><meta charset="utf-8"><title>BossForge art audition</title>
 <style>body{background:#151018;color:#eee;font:14px system-ui;margin:20px}main{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
 img{width:100%;aspect-ratio:2/3;object-fit:cover;image-rendering:pixelated;border-radius:10px;background:#000}small{color:#aaa}</style>
-<h1>Art audition: MGSD + original 16-bit</h1><p>Subject: ${SUBJECT}</p><main>${tiles}</main>`,
+<h1>Art audition: large-head figures + original 16-bit</h1><p>Subject: ${SUBJECT}</p><main>${tiles}</main>`,
 );
 console.log(`Contact sheet: ${join('art/audition/out', 'index.html')}`);

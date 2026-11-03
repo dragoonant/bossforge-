@@ -34,8 +34,8 @@ All four share one ComfyUI on port 8188 (`%USERPROFILE%\HunyuanVideo\ComfyUI_win
 - **Flux Studio (local, free):** text-to-image and image edit; no negative prompt (say "wordless and untitled, full-bleed"); a proper noun in a clause invites lettering; name the thing instead of "figure"/"creature"; review on labelled 4x4 contact sheets.
 - **SDXL (local, free):** fallback; cannot hold an exact head ratio; 77-CLIP-token prompt limit (style first, generic tail last).
 
-## MGSD figure standard (Mallet, approved 2026-10-05)
-About 2-2.5 heads tall, head roughly 40% of total height and as wide as the shoulders, tiny torso, short stubby legs with big chunky feet, short arms with oversized hands and weapons, Master Grade hard-surface detail, plain round black base, white background, no text. Check the image, not the prompt. Reject duplicate/extra weapons, missing limbs, fused parts, garbled faces, text, cropped base, wrong wargear. (Whirr/WarMech/Dead of Winner/Fell-in instead used 3-5 head "stated in plain words" proportions; those projects ban the words MGSD/SD/chibi/Gundam.)
+## Earlier large-head figure standard (Mallet, approved 2026-10-05; since replaced by the house style in tabletop-kb rule 7 and mallet-42k `docs/FIGURE-STYLE.md` (owner, 2026-10-31))
+About 2-2.5 heads tall, head roughly 40% of total height and as wide as the shoulders, small torso, short thick legs with big chunky feet, short arms with oversized hands and weapons, hard-surface detail, plain round black base, white background, no text. Check the image, not the prompt. Reject duplicate/extra weapons, missing limbs, fused parts, garbled faces, text, cropped base, wrong wargear. (Whirr/WarMech/Dead of Winner/Fell-in instead used 3-5 head "stated in plain words" proportions; those projects ban the figure-style labels listed in mallet-42k docs/FIGURE-STYLE.md.)
 
 ## Owner rules for GPU work
 - Announce GPU work at the start of a session and wait for a go when the owner may be using the PC (Fell-in rule); on 2026-10-17 the owner waived the gate for Fell-in M5 and said "use those to develop the look and sound".

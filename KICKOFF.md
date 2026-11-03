@@ -25,7 +25,7 @@ copied into `docs/lessons/`.
 1. Card names and text: **real cards** (reproduction posture).
 2. Card pool: **base game first**.
 3. Deployment: **public GitHub Pages**.
-4. Art: **"Mgsd style with original 16 bit art style. Give me 10 different proofs for me to pick
+4. Art: the owner asked for the large-head figure style with an original 16-bit art style (the figure style has since been replaced, since replaced by the house style in tabletop-kb rule 7 and mallet-42k `docs/FIGURE-STYLE.md` (owner, 2026-10-31)): **"Give me 10 different proofs for me to pick
    one forward to go with."** → the audition in `tools/art-audition.mjs` (PLAN D7).
 
 Everything else is a stated default in PLAN.md, correctable in one word.

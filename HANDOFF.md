@@ -12,7 +12,7 @@ Rewritten each session, never appended. Decisions live in PLAN.md; this file say
 - The interface: board-as-window, hover preview, choice modal with a peek button, open-information
   browsers, log drawer, paced AI turns and an animated Adventure phase. Smart spell stops skip
   windows that cannot matter to you.
-- The **art audition tool** for your MGSD + original 16-bit brief: ten directions on one card,
+- The **art audition tool** for your large-head figures + original 16-bit brief: ten directions on one card,
   linted, ready for Flux Studio.
 
 **Questions for you, in priority order**
